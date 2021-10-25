@@ -1,5 +1,4 @@
-
-def add(a,b):
+def add(a, b):
     """
     >>> add(1, 2)
     3
@@ -10,6 +9,7 @@ def add(a,b):
     """
     return a + b
 
+
 def multiply(a, b):
     """
     >>> multiply(1, 2)
@@ -18,6 +18,7 @@ def multiply(a, b):
     6
     """
     return a * b
+
 
 def combine(a, b):
     """
@@ -28,20 +29,25 @@ def combine(a, b):
     >>> combine(2, 3)
     22
     """
-    return multiply(
-        add(a, b),
-        add(b, a),
-    ) - 3
+    return (
+        multiply(
+            add(a, b),
+            add(b, a),
+        )
+        - 3
+    )
 
 
 if __name__ == "__main__":
     import random
+
     numbers = tuple(
         combine(
-            random.randint(0, 100), 
             random.randint(0, 100),
-        ) 
+            random.randint(0, 100),
+        )
         for i in range(10)
     )
     from pprint import pprint
+
     pprint(numbers)
