@@ -35,7 +35,7 @@ shell: build_test	##
 # Container Targets ------------------------------------------------------------
 
 update_cov-fail-under:	##
-	pytest --cov-report=html:/tmp/cov.html
+	#pytest --cov-report=html:/tmp/cov.html
 	grep 'pc_cov' /tmp/cov.html/index.html | sed 's/[^0-9.]*//g' > pytest.cov-fail-under
 	# Updated coverage requirement to
-	cat pytest.cov-fail-under
+	#cat pytest.cov-fail-under
