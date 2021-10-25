@@ -16,6 +16,6 @@ test: build_test
 shell: build_test
 	docker run --rm -it \
 		--publish 8000:8000 \
-		--volume ${PWD}:/app/ \
+		--volume ${PWD}:/app/:ro \
 		--entrypoint /bin/sh \
 		${DOCKER_IMAGE_TEST}
