@@ -1,5 +1,8 @@
 LICENSE
 .github
+node_modules/
+**/package-lock.json
+reports/
 
 **/__pycache__
 **/.pytest_cache

@@ -48,6 +48,7 @@ if __name__ == "__main__":
         )
         for i in range(10)
     )
-    from pprint import pprint
 
-    pprint(numbers)
+    import json
+    data = json.dumps(numbers)
+    print(data)

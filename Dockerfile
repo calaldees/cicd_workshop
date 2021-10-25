@@ -23,6 +23,8 @@ FROM base_test as test
     COPY . .
     CMD ["pytest"]
 
-FROM base as app
+FROM base as serve_app
     COPY ./app/ .
+    RUN python example.py > data.json
+    RUN mv example.html index.html
     CMD ["python", "-m", "http.server"]

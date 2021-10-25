@@ -14,7 +14,7 @@ DOCKER_IMAGE_TEST:=cicd_test
 build:	##
 	docker build --tag ${DOCKER_IMAGE} .
 
-run:	##
+run: build	##
 	docker run --rm -it --publish 8000:8000 ${DOCKER_IMAGE}
 
 build_test:	##
@@ -33,6 +33,9 @@ shell: build_test	##
 		${DOCKER_IMAGE_TEST}
 
 # Container Targets ------------------------------------------------------------
+
+black:	##
+	black .
 
 update_cov-fail-under:	##
 	#pytest --cov-report=html:/tmp/cov.html
