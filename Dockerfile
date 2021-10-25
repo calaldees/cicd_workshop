@@ -8,9 +8,8 @@ FROM base as base_test
     RUN pip install -r requirements.test.txt
 
 FROM base_test as test
-    COPY ./app ./app
-    COPY ./tests ./tests
-    ENTRYPOINT ["pytest", "--doctest-modules"]
+    COPY . .
+    ENTRYPOINT ["pytest"]
 
 FROM base as app
     COPY ./app/ .
