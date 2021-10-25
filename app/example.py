@@ -26,7 +26,7 @@ def combine(a, b):
     >>> combine(0, 1)
     -2
     >>> combine(2, 3)
-    33
+    22
     """
     return multiply(
         add(a, b),

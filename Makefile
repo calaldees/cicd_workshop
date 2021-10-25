@@ -12,5 +12,5 @@ shell:
 
 test:
 	docker build --tag ${DOCKER_IMAGE_TEST} --target test .
-	docker run --rm -it --entrypoint pytest ${DOCKER_IMAGE_TEST}
+	docker run --rm ${DOCKER_IMAGE_TEST}
 
