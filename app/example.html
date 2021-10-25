@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link id="favicon" rel="shortcut icon" type="image/png" href="data:image/png;base64,....==" />
+    <title>CICD Example</title>
+    <style>
+        h1 {
+            color: red;
+        }
+        textarea {
+            clear: both;
+            width: 100%;
+            height: 10em;
+        }
+        </style>
+</head>
+<body>
+    <h1>CICD Example</h1>
+
+    <!-- Interactive Element -->
+    <input id="example_input" type="text" name="input">
+    <button id="example_submit">Do a thing</button>
+    <textarea id="example_output"></textarea>
+    <script type="module">
+        const $example_input = document.getElementById("example_input");
+        const $example_submit = document.getElementById("example_submit");
+        const $example_output = document.getElementById("example_output");
+        $example_submit.addEventListener("click", (event)=>{
+            //console.log(event);
+            $example_output.textContent += `\n${$example_input.value}`;
+        });
+    </script>
+
+    <!-- Data loaded from file -->
+    <div id="data">Loading ...</div>
+    <script type="module">
+        async function get_data() {
+            const response = await fetch(`data.json`);
+            const data = await response.json();
+            //console.log("Loaded", data);
+            const $data = document.getElementById("data");
+            $data.innerHTML = "";
+            for (let i of data) {
+                const $li = document.createElement("li");
+                $li.textContent = i;
+                $data.appendChild($li);
+            }
+        }
+        get_data();
+    </script>
+</body>
+</html>

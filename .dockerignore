@@ -1,0 +1,6 @@
+LICENSE
+Makefile
+.github
+
+__pycache__
+*.md

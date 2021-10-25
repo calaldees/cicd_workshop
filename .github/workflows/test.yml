@@ -1,0 +1,19 @@
+name: Test
+
+on:
+  push:
+    paths:
+      - '**'
+
+#defaults:
+#  run:
+#    working-directory: client
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Test
+      run: make test
