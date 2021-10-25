@@ -1,5 +1,17 @@
-FROM python:alpine as base
+FROM python:slim as base
+
+    # Systems tools
+    RUN \
+        apt-get update && \
+        apt-get install -y \
+            less \
+            nano \
+            make \
+    && rm -rf /var/lib/apt/lists/*
+
     WORKDIR /app/
+
+    # Project dependencies
     COPY requirements.txt .
     RUN pip install -r requirements.txt
 
@@ -9,8 +21,8 @@ FROM base as base_test
 
 FROM base_test as test
     COPY . .
-    ENTRYPOINT ["pytest"]
+    CMD ["pytest"]
 
 FROM base as app
     COPY ./app/ .
-    ENTRYPOINT ["python", "-m", "http.server"]
+    CMD ["python", "-m", "http.server"]
