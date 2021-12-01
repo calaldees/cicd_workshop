@@ -1,33 +1,32 @@
 name: Cypress Browser Tests
 
-on: 
+on:
   push:
+    paths:
+      - '**'
 
 jobs:
 
-  cypress-run:
-    runs-on: ubuntu-latest
-    # Docker image with Cypress pre-installed
-    # https://github.com/cypress-io/cypress-docker-images/tree/master/included
-    container: cypress/included:8.9.1
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - run: cypress run
-        env:
-          CYPRESS_BASE_URL: 'http://localhost:8000/'
-        with:
-          start: make run
-          wait-on: 'http://localhost:8000'
-
   # cypress-run:
   #   runs-on: ubuntu-latest
+  #   container: cypress/included:8.9.1
   #   steps:
   #     - name: Checkout
   #       uses: actions/checkout@v2
-  #     - name: Cypress run
-  #       uses: cypress-io/github-action@v2
-  #       with:
-  #         config: baseUrl=http://localhost:8000
-  #         start: make run
-  #         wait-on: 'http://localhost:8000'
+  #     - run: cypress run
+  #       env:
+  #         CYPRESS_BASE_URL: 'http://localhost:8000/'
+
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: "Install cypress with npm (why is this needed for a cypress action?)"
+        run: npm install cypress
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          config: baseUrl=http://localhost:8000
+          start: make run
+          wait-on: 'http://localhost:8000'

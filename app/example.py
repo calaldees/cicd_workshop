@@ -50,5 +50,6 @@ if __name__ == "__main__":
     )
 
     import json
+
     data = json.dumps(numbers)
     print(data)
