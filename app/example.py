@@ -1,3 +1,7 @@
+"""
+Example program with doctests
+"""
+
 def add(a, b):
     """
     >>> add(1, 2)
