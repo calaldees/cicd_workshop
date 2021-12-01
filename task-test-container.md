@@ -1,11 +1,11 @@
-Task: Test Container
-====================
+Task: Create a repo with CI Tests (GitHub Actions)
+=================================
 
-
-
+Your Mission:
 * Build a docker container that has a a python _code formatter_ and _test framework_ installed
 * Run tests and code formatter check in the container
 * Have the tests run when you commit to your repo
+
 
 Hints:
 * filename case is important!
@@ -173,4 +173,6 @@ HTML Report and Artefact
     * Alter the `Makefile:run_pytest` target to include `--volume ${PWD}:/app/` (to allow file-write mounting)
         * This is NOT an ideal way of containers sharing data ... but will do for now
     * Check the artifact is there in GitHub
+        * Sadly this is a zip file
+            * [Display files in browser where appropriate. #14](https://github.com/actions/upload-artifact/issues/14)
 

@@ -42,7 +42,7 @@ The Solution
 
 
 Task:
-Shared Whiteboard
+Shared Whiteboard [whiteboard.fi](https://whiteboard.fi)
 
 Many students struggle to articulate your ideas and understanding in writing.
 
@@ -50,6 +50,13 @@ Many students struggle to articulate your ideas and understanding in writing.
     * Faster, Easier, More efficient, Saves money
     * These are vague and if left unqualified are meaningless
 * "What is the problem is this technology trying to solve"
+
+
+Hands on
+--------
+
+* [task-test-container.md](task-test-container.md)
+
 
 
 Branches
@@ -133,7 +140,26 @@ Test Mac, Windows, Linux, Arm? all at once
 * [GitHub Actions Limitations and Gotchas](https://www.cbui.dev/github-actions-limitations-and-gotchas/)
 
 
+
+
 Further Reading
 ---------------
+
+### Test in Production
+Actually has some truth
 * https://www.flagship.io/test-in-production-memes/
 * https://increment.com/testing/i-test-in-production/
+
+
+### Professional Technologies
+* [git](https://git-scm.com/)
+* [GitHub](https://github.com) (repo)
+* [GitHub Actions](https://github.com/features/actions)
+* [GitPod](https://www.gitpod.io) (Cloud based development environment - VSCode in browser)
+* [Docker](https://www.docker.com/) (A tool for building and running containerised applications)
+* [PyTest](https://pytest.org/) (Python test framework)
+* [Black](https://github.com/psf/black#readme) (code formatter)
+* [make](https://www.gnu.org/software/make/manual/make.html) (tool to aid building software)
+
+
+* [My unpopular opinion about black code formatter](https://luminousmen.com/post/my-unpopular-opinion-about-black-code-formatter)
