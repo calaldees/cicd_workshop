@@ -1,4 +1,4 @@
-describe('FreeCycle', () => {
+describe('Cypress Example', () => {
 
 	const is_a_number = value => {
 		expect(Number.isNaN(+value), 'input should be a number').to.eq(false)

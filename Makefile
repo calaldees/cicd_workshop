@@ -32,12 +32,22 @@ shell: build_test	##
 		--entrypoint /bin/bash \
 		${DOCKER_IMAGE_TEST}
 
-# Container Targets ------------------------------------------------------------
+# Local Targets ----------------------------------------------------------------
 
-black:	##
+local_cypress:	##
+	# set CYPRESS_BASE_URL=http://localhost:8000/
+	npx cypress run
+
+local_server:	##
+	python3 -m http.server --directory ./app
+
+# Container Targets ------------------------------------------------------------
+#  These targets are to be run when inside the container
+
+container_black:	##
 	black .
 
-update_cov-fail-under:	##
+container_update_cov-fail-under:	##
 	#pytest --cov-report=html:/tmp/cov.html
 	grep 'pc_cov' /tmp/cov.html/index.html | sed 's/[^0-9.]*//g' > pytest.cov-fail-under
 	# Updated coverage requirement to

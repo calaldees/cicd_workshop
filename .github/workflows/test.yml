@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - '**'
+  # https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
+  # schedule
+  # workflow_dispatch - with params
 
 #defaults:
 #  run:
@@ -14,6 +17,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - name: Test
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Unit Tests
       run: make test
