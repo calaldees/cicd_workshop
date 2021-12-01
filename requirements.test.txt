@@ -2,5 +2,6 @@ black
 pytest
 pytest-env
 pytest-cov
+pytest-html
 radon
 pre-commit

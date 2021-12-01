@@ -22,9 +22,10 @@ build_test:	##
 	docker build --tag ${DOCKER_IMAGE_TEST} --target test .
 
 test: build_test	##
-	docker run --rm ${DOCKER_IMAGE_TEST} black . --check
-	docker run --rm ${DOCKER_IMAGE_TEST} pytest \
-		--cov-fail-under $$(cat pytest.cov-fail-under)
+	docker run --rm ${DOCKER_IMAGE_TEST} \
+		black . --check
+	docker run --rm --volume ${PWD}/reports:/app/reports:rw ${DOCKER_IMAGE_TEST} \
+		pytest --cov-fail-under $$(cat pytest.cov-fail-under)
 	# TODO - copy html coverage report out of container
 	# python3 -m http.server --directory /tmp/cov.html/
 test_cypress:	## 
