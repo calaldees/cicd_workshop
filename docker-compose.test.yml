@@ -1,0 +1,7 @@
+services:
+  client_test:
+      links:
+        - server
+      environment:
+        - CYPRESS_BASE_URL=http://server:8000
+

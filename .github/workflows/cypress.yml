@@ -3,9 +3,19 @@ name: Cypress Browser Tests
 on:
   push:
     paths:
-      - '**'
+      - 'cypress.json'
+      - 'cypress/**'
+      - 'app/**'
 
 jobs:
+
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - run: make test_cypress
+
 
   # cypress-run:
   #   runs-on: ubuntu-latest
@@ -17,16 +27,16 @@ jobs:
   #       env:
   #         CYPRESS_BASE_URL: 'http://localhost:8000/'
 
-  cypress-run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: "Install cypress with npm (why is this needed for a cypress action?)"
-        run: npm install cypress
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          config: baseUrl=http://localhost:8000
-          start: make run
-          wait-on: 'http://localhost:8000'
+  # cypress-run:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: "Install cypress with npm (why is this needed for a cypress action?)"
+  #       run: npm install cypress
+  #     - name: Cypress run
+  #       uses: cypress-io/github-action@v2
+  #       with:
+  #         config: baseUrl=http://localhost:8000
+  #         start: make run
+  #         wait-on: 'http://localhost:8000'

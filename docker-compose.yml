@@ -1,0 +1,11 @@
+services:
+
+  server:
+    build:
+      context: ./
+      target: serve_app
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
+    init: true

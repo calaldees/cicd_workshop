@@ -24,6 +24,12 @@ test: build_test	##
 	docker run --rm ${DOCKER_IMAGE_TEST} black . --check
 	docker run --rm ${DOCKER_IMAGE_TEST} pytest \
 		--cov-fail-under $$(cat pytest.cov-fail-under)
+test_cypress:	## 
+	docker-compose \
+		--file docker-compose.yml \
+		--file docker-compose.cypress.yml \
+		--file docker-compose.test.yml \
+		up --build client_test
 
 shell: build_test	##
 	docker run --rm -it \
