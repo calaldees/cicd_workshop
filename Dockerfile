@@ -26,5 +26,5 @@ FROM base_test as test
 FROM base as serve_app
     COPY ./app/ .
     RUN python example.py > data.json
-    RUN mv example.html index.html
+    #RUN mv example.html index.html
     CMD ["python", "-m", "http.server"]
