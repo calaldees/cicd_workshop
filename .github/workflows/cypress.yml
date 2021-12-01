@@ -1,11 +1,13 @@
 name: Cypress Browser Tests
 
-on:
-  push:
-    paths:
-      - 'cypress.json'
-      - 'cypress/**'
-      - 'app/**'
+on: [workflow_dispatch]
+# Disable running on every commit because this job downloaded a 4gb image and github actions have no cache
+# on:
+#   push:
+#     paths:
+#       - 'cypress.json'
+#       - 'cypress/**'
+#       - 'app/**'
 
 jobs:
 

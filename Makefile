@@ -30,6 +30,7 @@ test_cypress:	##
 		--file docker-compose.cypress.yml \
 		--file docker-compose.test.yml \
 		up --build client_test
+	docker-compose down
 
 shell: build_test	##
 	docker run --rm -it \
