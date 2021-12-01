@@ -18,6 +18,8 @@ FROM python:slim as base
 FROM base as base_test
     COPY requirements.test.txt .
     RUN pip install -r requirements.test.txt
+    # to run precommits hooks we need to install git in this container
+    #RUN pre-commit install
 
 FROM base_test as test
     COPY . .

@@ -3,3 +3,4 @@ pytest
 pytest-env
 pytest-cov
 radon
+pre-commit
