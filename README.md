@@ -1,20 +1,20 @@
-cicd_workshop
-=============
-
-The Problem
------------
-
-* Developer -> Production
-    * ["I Test In Production" Meme's](https://www.google.com/search?tbm=isch&q=i+test+in+production)
-    * This is irresponsible madness ...
-* Developers
+CI/CD Workshop
+==============
 
 A one off workshop introducing learners to CICD concepts
 
 
-* https://www.flagship.io/test-in-production-memes/
-* https://increment.com/testing/i-test-in-production/
+The Problem
+-----------
 
+* Developer -> makes a code change -> Deploy to all the servers (Production)
+    * ["I Test In Production" Meme's](https://www.google.com/search?tbm=isch&q=i+test+in+production)
+    * This is irresponsible madness ...
+* Developer(s) -> making changes over 10 parts of a big project -> Deploy to all the servers
+    * Even more madness ... 
+    * There are monkeys flinging poo everywhere!
+
+What is the problem? How do we fix it?
 
 
 
@@ -63,8 +63,9 @@ Branch Protection
     * Require a pull request before merging 
     * Require status checks to pass before merging 
 
-Sqush
- bisect
+* Squash commits for merging branches
+    * allows for `git bisect`
+
 
 Containers
 ----------
@@ -84,18 +85,55 @@ Actions/Jobs/Workflow
     * Make code reviews, branch management, and issue triaging work the way you want.
 
 Downstream jobs
-Paralalel
-Metrics - cyclomatic compexity
 Artifacts
 
+
+Metrics
+-------
+
+Metrics - cyclomatic compexity
 Code quality
 
 
-Matrix (Multiplatform?)
-------
+Pre-commit hooks
+----------------
+
+* [pre-commit](https://pre-commit.com/) -  A framework for managing and maintaining multi-language pre-commit hooks. 
+    * [Supported hooks](https://pre-commit.com/hooks.html) list
+    * Install
+        * Local
+            * `pip install pre-commit`
+            * `pre-commit install`
+        * You may want this installed and managed in the container
+
+
+Parallelisation
+---------------
+
+Your local system (laptop) is not sufficient
+
+* 1000 test to run that take 30min
+* Split the tests into even batches and run them simaltainiously
+* Spin up 10 servers that run 100 tests in 3min (on average)
+* Merge the test reports
+
+10 times faster
+
+
+
+Matrix Testing (Multiplatform)
+--------------
+
+Test Mac, Windows, Linux, Arm? all at once
 
 
 
 
 * [pre-commit.com/hooks](https://pre-commit.com/hooks.html)
 * [GitHub Actions Limitations and Gotchas](https://www.cbui.dev/github-actions-limitations-and-gotchas/)
+
+
+Further Reading
+---------------
+* https://www.flagship.io/test-in-production-memes/
+* https://increment.com/testing/i-test-in-production/

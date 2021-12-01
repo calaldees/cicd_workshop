@@ -9,6 +9,7 @@ help:	## display this help
 DOCKER_IMAGE:=cicd_example
 DOCKER_IMAGE_TEST:=cicd_test
 
+
 # Local Targets ----------------------------------------------------------------
 
 build:	##
@@ -24,6 +25,8 @@ test: build_test	##
 	docker run --rm ${DOCKER_IMAGE_TEST} black . --check
 	docker run --rm ${DOCKER_IMAGE_TEST} pytest \
 		--cov-fail-under $$(cat pytest.cov-fail-under)
+	# TODO - copy html coverage report out of container
+	# python3 -m http.server --directory /tmp/cov.html/
 test_cypress:	## 
 	docker-compose \
 		--file docker-compose.yml \
