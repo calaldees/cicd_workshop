@@ -3,11 +3,25 @@ CI/CD Workshop
 
 A one off workshop introducing learners to CICD concepts
 
+Objectives
+----------
+
+(not sure they work)
+Reverse Objectives - Tell me at the end what you got
+
+
+Overview
+--------
+
+* Talky bit (until you get board - maybe some typing) (45min)
+* Do-ey bit (can you make a simple CI system) (1h30min)
+* Talky bit (probably wont have time for much) (45min)
+
 
 The Problem
 -----------
 
-* Developer -> makes a code change -> Deploy to all the servers (Production)
+* Developer -> makes a code change -> Deploy to all the servers/appStore (Production)
     * ["I Test In Production" Meme's](https://www.google.com/search?tbm=isch&q=i+test+in+production)
     * This is irresponsible madness ...
 * Developer(s) -> making changes over 10 parts of a big project -> Deploy to all the servers
@@ -15,7 +29,6 @@ The Problem
     * There are monkeys flinging poo everywhere!
 
 What is the problem? How do we fix it?
-
 
 
 
@@ -27,8 +40,13 @@ The Solution
 * Strategy 2: Deploy a little but, detect problems quickly and roll back quickly (if needed)
     * > It's all gone wrong ... [giffy: run away](https://giphy.com/explore/run-away)
 
+
+* We could use cheaper human labour - Historic exploitation
+
+
 * Continuous Integration (CI)
 * Continuous Deployment (CD)
+
 
 * Technologies
     * [GitLab CI](https://docs.gitlab.com/ee/ci/)
@@ -47,7 +65,7 @@ Shared Whiteboard [whiteboard.fi](https://whiteboard.fi)
 Many students struggle to articulate your ideas and understanding in writing.
 
 * Banned phrases (I WILL GET ANNOYED!)
-    * Faster, Easier, More efficient, Saves money
+    * Faster, Easier, More efficient, Saves-money/costs-less
     * These are vague and if left unqualified are meaningless
 * "What is the problem is this technology trying to solve"
 
