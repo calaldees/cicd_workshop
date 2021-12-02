@@ -1,13 +1,15 @@
 CI/CD Workshop
 ==============
 
-A one off workshop introducing learners to CICD concepts
+* A one off workshop introducing learners to CICD concepts
+* Get ready to take notes (seriously ...)
+
 
 Objectives
 ----------
 
-(not sure they work)
-Reverse Objectives - Tell me at the end what you got
+* (not sure they work)
+* Reverse Objectives - Tell me at the end what you got
 
 
 Overview
