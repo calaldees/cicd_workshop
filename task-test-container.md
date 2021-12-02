@@ -76,6 +76,8 @@ def multiply(a, b):
 
 `test_example.py`
 ```python
+from example import *
+
 def test_add():
     assert add(1, 2) == 3
     assert add(1, -2) == -1
