@@ -67,11 +67,11 @@ shell:
 
 `example.py`
 ```python
-def add(a, b):
-    return 0
+def add(a,b):
+  return 0
 
-def multiply(a, b):
-    return 0
+def multiply(a,b):
+  return 0
 ```
 
 `test_example.py`
@@ -111,9 +111,11 @@ jobs:
 Extension
 =========
 
-These can be done in any order
+The tasks below can be done in any order.
 
-Add/track the new files with `git add FILENAME` (be CAREFUL about tracking ANY file that you did not create. Add these `.gitignore` if you're l33t enough)
+* If you are adding new files, you need to _track_ them with git.
+* Add/track the new files with `git add FILENAME` 
+    * (be CAREFUL about tracking files that were programmatically generated. Add these `.gitignore` if you're l33t enough)
 
 
 Setup a Manual Action with parms
@@ -133,21 +135,22 @@ Code Coverage Report
         [pytest]
         env =
             COVERAGE_FILE=/tmp/pytest-cov.coverage
-        addopts = --cov app --cov-report term --cov-report=html:/tmp/cov.html
+        addopts = --cov app --cov-report term --cov-report=html:/tmp/cov_report
         ```
-* serve the coverage report with a webserver
+* (not great, but) serve the coverage report with a webserver (to see the coverage report)
     * add `--publish 8000:8000` to `Makefile:shell`
-    * `pytest` (to generate the repot)
-    * `python3 -m http.server --directory /tmp/cov.html/`
+    * `pytest` (to generate the report)
+    * `python3 -m http.server --directory /tmp/cov_report/`
+        * open browser at port 8000
     * add `pytest --cov-fail-under ??` and test this by creating a new function (sub? or div?)
 * Side note:
-    * Getting files out of containers is a bit complex for now - but extracting html reports as _artefacts_ of the build process is useful
+    * Getting files out of an exited container is a bit complex for now - capturing html reports as _artefacts_ of the build process is useful
 
 
 Code Metrics
 ------------
 
-* Install `radon`
+* Install `radon` in `Dockerfile`
 * Run `radon cc .` and `radon mi .`
 * Add these to `test.yml` to ensure these statistics are run on CI
 * Research what Cyclomatic Complexity and Maintainability Index are

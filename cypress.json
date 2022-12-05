@@ -1,9 +1,0 @@
-{
-    "videoUploadOnPasses": false,
-    "screenshotsFolder": "reports/screenshots",
-    "videosFolder": "reports/videos",
-    "reporter": "junit",
-    "reporterOptions": {
-      "mochaFile": "reports/junit-[hash].xml"
-    }
-}

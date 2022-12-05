@@ -1,13 +1,13 @@
 services:
   client_test:
-    image: cypress/included:9.1.0
+    image: cypress/included:11.2.0
     working_dir: /tests
     volumes:
       # USER passthrough
       - /etc/passwd:/etc/passwd:ro
       - /etc/group:/etc/group:ro
       # mount tests - readonly
-      - ${PWD}/cypress.json:/tests/cypress.json:ro
+      - ${PWD}/cypress.config.js:/tests/cypress.config.js:ro
       - ${PWD}/cypress:/tests/cypress:ro
       # mount reports - writeable
       - ${PWD}/reports:/tests/reports:rw
