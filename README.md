@@ -30,7 +30,8 @@ The Problem
     * Even more madness ... 
     * There are monkeys flinging poo everywhere!
 
-What is the problem? How do we fix it?
+What is the problem?
+How do we fix it?
 
 
 
@@ -39,11 +40,14 @@ The Solution
 
 * Strategy 1: Get it right first time every time - detect errors
     * > None shall pass!!!!!
+    * Months of checking involving whole teams of people and users
 * Strategy 2: Deploy a little but, detect problems quickly and roll back quickly (if needed)
     * > It's all gone wrong ... [giffy: run away](https://giphy.com/explore/run-away)
 
 
-* We could use cheaper human labour - Historic exploitation
+* Strategy 3: Use cheaper human labour
+    * Historic exploitation
+    * How fast are humans? How reliable are humans? how expensive are humans?
 
 
 * Continuous Integration (CI)
@@ -78,6 +82,11 @@ Hands on
 * [task-test-container.md](task-test-container.md)
 
 
+Unit-Tests
+----------
+
+1000's of Tests that test the small units of functionality
+
 
 Branches
 --------
@@ -86,7 +95,7 @@ Feature branches
 
 Branch Protection
 
-* GitHub -> Repo -> Settings -> Branches -> Protect matching branches
+* GitHub -> project/repo -> Settings -> Branches -> Protect matching branches
     * Require a pull request before merging 
     * Require status checks to pass before merging 
 
@@ -97,9 +106,12 @@ Branch Protection
 Containers
 ----------
 
-Analogy: Pre-packed computer-in-a-box that can run isolated anywhere
-Microservice
-Application + Database separate
+* Analogy: Pre-packed computer-in-a-box that can run isolated anywhere
+    * Can (mostly) only run software on cloud in containers
+    * Why? (do we have the same python version on all servers across the planet)
+* Microservice
+* Application + Database separate
+
 
 
 Actions/Jobs/Workflow
@@ -107,8 +119,8 @@ Actions/Jobs/Workflow
 
 * [GitHub Actions](https://github.com/features/actions)
     * Automate your workflow from idea to production
-    * GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. 
-    * Build, test, and deploy your code right from GitHub. 
+    * GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD.
+    * Build, test, and deploy your code right from GitHub.
     * Make code reviews, branch management, and issue triaging work the way you want.
 
 Downstream jobs
@@ -118,8 +130,36 @@ Artifacts
 Metrics
 -------
 
-Metrics - cyclomatic compexity
-Code quality
+* Metrics - cyclomatic complexity
+* Code coverage
+* (Derive) Code quality?
+
+
+Code Coverage
+-------------
+
+```bash
+make test
+# generates `reports/cov.html`
+python3 -m http.server --directory reports
+```
+* Show html report
+* Show `pytest.cov-fail-under`
+
+
+Integration Testing - Cypress
+-----------------------------
+
+```bash
+make run
+# demo application http://localhost:8000
+```
+```powershell
+npm install cypress
+set CYPRESS_BASE_URL=http://localhost:8000
+npx cypress open
+```
+
 
 
 Pre-commit hooks
@@ -140,12 +180,37 @@ Parallelisation
 Your local system (laptop) is not sufficient
 
 * 1000 test to run that take 30min
-* Split the tests into even batches and run them simaltainiously
+* Split the tests into even batches and run them simultaneously
 * Spin up 10 servers that run 100 tests in 3min (on average)
 * Merge the test reports
 
-10 times faster
+10 times-ish faster
 
+
+Integration Testing -> CD
+-------------------
+
+### Code process
+
+* branch strategies
+* formatters
+* code review process
+* merging/squashing
+    * bisect
+    * Feature/ticket in one audit/hash/place
+
+### Continuous Integration
+* Android (push to app store)
+    * Mockachino
+    * 7 updates a day? (good?/bad? why? human release)
+* iOS
+
+### Continuous Deployment
+* Server (staged deployment)
+    * trigger android article
+* incremental deployment?
+* rollback? tested as part of process
+* chaos monkey(/gorilla)
 
 
 Matrix Testing (Multiplatform)
@@ -156,14 +221,12 @@ Test Mac, Windows, Linux, Arm? all at once
 
 
 
+Further Reading
+---------------
+
 * [pre-commit.com/hooks](https://pre-commit.com/hooks.html)
 * [GitHub Actions Limitations and Gotchas](https://www.cbui.dev/github-actions-limitations-and-gotchas/)
 
-
-
-
-Further Reading
----------------
 
 ### Test in Production
 Actually has some truth

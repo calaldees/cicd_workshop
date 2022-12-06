@@ -20,18 +20,21 @@ Repo
         * `Add a README file`
 * Create GitPod Workspace
     * In your browser `https://gitpod.io#PASTE_YOUR_REPO_URL_HERE`
-* Start developing! Add the files below
-    * Fix the broken tests
-    * Format the code with the formatter `black .`
 * Commit and push
+    * (as a test edit `README.md`)
     * `git status`
     * `git add .` 
-        * (first time to track the files)
+        * (first time to track/add new files with git)
     * `git commit -a`
-        * Type a meaning message about your change
+        * Type a meaningful message about your change
     * `git push`
-        * (you may have to set GitPod permissions)
-    * Check GitHub actions status
+        * (you may have to set GitPod permissions the first time you do this)
+* Task
+    1. Edit your `README.md` and commit a change -> verify the file has updated on GitHub web view
+    2. Create/Copy files below
+    3. Fix the broken tests
+    4. Format the code with the formatter `black .`
+    5. Commit + Check GitHub actions status
 
 
 Files
